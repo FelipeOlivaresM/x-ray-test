@@ -10,6 +10,7 @@ import Bank from './pages/Bank.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import Plans from './pages/Plans.jsx';
 import Credits from './pages/Credits.jsx';
+import { AVAILABLE, setLang, t, useLang } from './i18n/index.js';
 
 const NAV = [
   { to: '/', label: 'Inicio', icon: 'home' },
@@ -22,6 +23,7 @@ const NAV = [
 
 export default function App() {
   const path = useRoute();
+  const lang = useLang();
   const [open, setOpen] = useState(false);
   const seg = path.split('/').filter(Boolean);
 
@@ -40,23 +42,33 @@ export default function App() {
   return (
     <div className="app">
       <a className="skip" href="#contenido" onClick={(e) => (e.preventDefault(), document.getElementById('contenido')?.focus())}>
-        Saltar al contenido
+        {t('Saltar al contenido')}
       </a>
       <header className="topbar">
-        <a href="#/" className="brand" onClick={() => setOpen(false)} aria-label="RadioSim, inicio">
+        <a href="#/" className="brand" onClick={() => setOpen(false)} aria-label={t('RadioSim, inicio')}>
           <Logo size={34} />
         </a>
-        <button className="menu-btn" aria-label="Menú" aria-expanded={open} onClick={() => setOpen(!open)}>
+        <button className="menu-btn" aria-label={t('Menú')} aria-expanded={open} onClick={() => setOpen(!open)}>
           <Icon name={open ? 'x' : 'menu'} size={20} />
         </button>
-        <nav className={`nav ${open ? 'nav--open' : ''}`} aria-label="Principal">
+        <nav className={`nav ${open ? 'nav--open' : ''}`} aria-label={t('Principal')}>
           {NAV.map((n) => (
-            <a key={n.to} href={`#${n.to}`} className={active(n.to) ? 'active' : ''} aria-current={active(n.to) ? 'page' : undefined} onClick={() => setOpen(false)} title={n.label}>
+            <a key={n.to} href={`#${n.to}`} className={active(n.to) ? 'active' : ''} aria-current={active(n.to) ? 'page' : undefined} onClick={() => setOpen(false)} title={t(n.label)}>
               <Icon name={n.icon} size={16} />
-              <span>{n.label}</span>
+              <span>{t(n.label)}</span>
             </a>
           ))}
         </nav>
+        {AVAILABLE.length > 1 && (
+          <div className="lang" role="group" aria-label={t('Idioma')}>
+            <Icon name="globe" size={15} />
+            {AVAILABLE.map((l) => (
+            <button key={l.id} className={lang === l.id ? 'on' : ''} aria-pressed={lang === l.id} title={l.name} lang={l.id} onClick={() => setLang(l.id)}>
+                {l.short}
+              </button>
+            ))}
+          </div>
+        )}
       </header>
       <main className="main" id="contenido" tabIndex={-1}>
         {page}
@@ -65,16 +77,17 @@ export default function App() {
         <div>
           <Logo size={24} />
           <p>
-            Plataforma educativa de simulación. No sustituye la supervisión docente ni la valoración de un profesional de la salud. No emite diagnósticos para
-            decisiones clínicas reales.
+            {t(
+              'Plataforma educativa de simulación. No sustituye la supervisión docente ni la valoración de un profesional de la salud. No emite diagnósticos para decisiones clínicas reales.',
+            )}
           </p>
         </div>
         <div>
           <p>
-            Huesos: BodyParts3D (DBCLS, CC BY-SA 2.1 JP). Radiografías reales: Wikimedia Commons, con licencias abiertas.{' '}
-            <a href="#/creditos">Créditos y licencias</a>
+            {t('Huesos: BodyParts3D (DBCLS, CC BY-SA 2.1 JP). Radiografías reales: Wikimedia Commons, con licencias abiertas.')}{' '}
+            <a href="#/creditos">{t('Créditos y licencias')}</a>
           </p>
-          <p className="muted small">Prototipo académico · 2026.</p>
+          <p className="muted small">{t('Prototipo académico · 2026.')}</p>
         </div>
       </footer>
     </div>

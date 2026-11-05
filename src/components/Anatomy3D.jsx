@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { LAYER_SURF } from '../lib/shaders.js';
 import { carmCamera } from '../lib/carm.js';
+import { getLang, t, useLang } from '../i18n/index.js';
 
 const LAYER_HELP = 2;
 const AMBER = 0xffb547;
@@ -24,16 +25,17 @@ function textSprite(text, color = '#ffb547', size = 64) {
 }
 
 /** Cubo de orientación: A/P anterior-posterior, D/I derecha-izquierda, Cr/Ca. */
+const CUBE_FACES = () => [
+  [t('I'), '#9fe7f2'], // +X izquierda del paciente
+  [t('D'), '#9fe7f2'], // -X derecha
+  ['Cr', '#ffb547'], // +Y craneal
+  ['Ca', '#ffb547'], // -Y caudal
+  ['A', '#ffffff'], // +Z anterior
+  ['P', '#ffffff'], // -Z posterior
+];
+
 function makeOrientationCube() {
-  const faces = [
-    ['I', '#9fe7f2'], // +X izquierda del paciente
-    ['D', '#9fe7f2'], // -X derecha
-    ['Cr', '#ffb547'], // +Y craneal
-    ['Ca', '#ffb547'], // -Y caudal
-    ['A', '#ffffff'], // +Z anterior
-    ['P', '#ffffff'], // -Z posterior
-  ];
-  const mats = faces.map(([t, col]) => {
+  const mats = CUBE_FACES().map(([label, col]) => {
     const c = document.createElement('canvas');
     c.width = c.height = 128;
     const g = c.getContext('2d');
@@ -46,7 +48,7 @@ function makeOrientationCube() {
     g.font = '600 58px "Share Tech Mono", ui-monospace, monospace';
     g.textAlign = 'center';
     g.textBaseline = 'middle';
-    g.fillText(t, 64, 68);
+    g.fillText(label, 64, 68);
     const tex = new THREE.CanvasTexture(c);
     tex.colorSpace = THREE.SRGBColorSpace;
     return new THREE.MeshBasicMaterial({ map: tex });
@@ -87,6 +89,26 @@ export default function Anatomy3D({
   const props = useRef({});
   const [failed, setFailed] = useState(false);
   props.current = { study, rot, ang, showBeam, showPlanes, labels, detectorView, autoRotate };
+  const lang = useLang();
+
+  // textos dibujados en texturas: se regeneran al cambiar de idioma
+  useEffect(() => {
+    const s = st.current;
+    if (!s.orient) return;
+    const swap = (mat, tex) => {
+      mat.map?.dispose();
+      mat.map = tex;
+      mat.needsUpdate = true;
+    };
+    swap(s.tubeLabel.material, textSprite(t('TUBO'), '#ffb547', 30));
+    swap(s.detLabel.material, textSprite(t('DET'), '#38e1f5', 30));
+    const fresh = makeOrientationCube();
+    s.orient.cube.material.forEach((m, i) => {
+      swap(m, fresh.cube.material[i].map);
+      fresh.cube.material[i].dispose();
+    });
+    fresh.cube.geometry.dispose();
+  }, [lang]);
 
   useEffect(() => {
     const s = st.current;
@@ -141,11 +163,11 @@ export default function Anatomy3D({
     tube.add(tubeBody);
     tube.add(new THREE.LineSegments(new THREE.EdgesGeometry(tubeBody.geometry), new THREE.LineBasicMaterial({ color: AMBER })));
     tube.children[1].rotation.z = Math.PI / 2;
-    const tubeLabel = new THREE.Sprite(new THREE.SpriteMaterial({ map: textSprite('TUBO', '#ffb547', 30), depthTest: false }));
+    const tubeLabel = new THREE.Sprite(new THREE.SpriteMaterial({ map: textSprite(t('TUBO'), '#ffb547', 30), depthTest: false }));
     tubeLabel.scale.set(0.7, 0.7, 1);
     tubeLabel.position.y = 0.5;
     tube.add(tubeLabel);
-    const detLabel = new THREE.Sprite(new THREE.SpriteMaterial({ map: textSprite('DET', '#38e1f5', 30), depthTest: false }));
+    const detLabel = new THREE.Sprite(new THREE.SpriteMaterial({ map: textSprite(t('DET'), '#38e1f5', 30), depthTest: false }));
     detLabel.scale.set(0.6, 0.6, 1);
     const planes = new THREE.Group();
     [
@@ -163,7 +185,7 @@ export default function Anatomy3D({
     setLayer(help);
     const beamCam = new THREE.PerspectiveCamera();
 
-    Object.assign(s, { renderer, cam, controls, orient, help, beamLines, cone, detector, tube, detLabel, planes, beamCam, framedFor: null });
+    Object.assign(s, { renderer, cam, controls, orient, help, beamLines, cone, detector, tube, tubeLabel, detLabel, planes, beamCam, framedFor: null });
 
     const resize = () => {
       const w = Math.max(wrapRef.current.clientWidth, 2);
@@ -328,7 +350,11 @@ export default function Anatomy3D({
     const [w, h] = s.size;
     const items = p.study.landmarks;
     if (el.childElementCount !== items.length) {
-      el.innerHTML = items.map((l) => `<div class="lbl3d"><i></i><span>${l.name}</span></div>`).join('');
+      el.innerHTML = items.map((l) => `<div class="lbl3d"><i></i><span>${t(l.name)}</span></div>`).join('');
+      s.labelLang = getLang();
+    } else if (s.labelLang !== getLang()) {
+      items.forEach((l, i) => (el.children[i].lastChild.textContent = t(l.name)));
+      s.labelLang = getLang();
     }
     items.forEach((l, i) => {
       const v = l.pos.clone().project(s.cam);
@@ -353,8 +379,8 @@ export default function Anatomy3D({
     <div ref={wrapRef} className={`anat3d ${className}`}>
       <canvas ref={canvasRef} />
       <div ref={labelRef} className="labels3d" />
-      {failed && <div className="viewer-fail">Tu navegador no permite WebGL.</div>}
-      {!study && !failed && <div className="xray-loading">Cargando esqueleto…</div>}
+      {failed && <div className="viewer-fail">{t('Tu navegador no permite WebGL.')}</div>}
+      {!study && !failed && <div className="xray-loading">{t('Cargando esqueleto…')}</div>}
       {children}
     </div>
   );

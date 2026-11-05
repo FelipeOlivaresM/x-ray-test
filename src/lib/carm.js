@@ -3,6 +3,7 @@
 //      derecha del paciente, -90 = tubo a la izquierda, ±180 = PA.
 // ang: inclinación craneocaudal. + = cefálica (el haz apunta hacia la cabeza).
 import * as THREE from 'three';
+import { t } from '../i18n/index.js';
 
 export const SID = 10; // distancia fuente-detector: 100 cm
 const D2R = Math.PI / 180;
@@ -47,9 +48,9 @@ export function rotLabel(rot) {
   const r = ((rot + 540) % 360) - 180;
   if (Math.abs(r) < 0.5) return 'AP 0°';
   if (Math.abs(Math.abs(r) - 180) < 0.5) return 'PA 180°';
-  return `${r > 0 ? 'DER' : 'IZQ'} ${pad(r)}°`;
+  return `${r > 0 ? t('DER') : t('IZQ')} ${pad(r)}°`;
 }
 export function angLabel(ang) {
   if (Math.abs(ang) < 0.5) return '0°';
-  return `${ang > 0 ? 'CEF' : 'CAU'} ${pad(ang)}°`;
+  return `${ang > 0 ? t('CEF') : t('CAU')} ${pad(ang)}°`;
 }

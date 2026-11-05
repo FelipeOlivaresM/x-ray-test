@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { RADIOGRAPHS, radiographUrl } from '../data/radiographs.js';
+import { t } from '../i18n/index.js';
 
 /** Radiografía real con zoom/desplazamiento y su atribución de licencia. */
 export function Credit({ id, compact = false }) {
@@ -7,17 +8,17 @@ export function Credit({ id, compact = false }) {
   if (!r) return null;
   return (
     <p className={`credit ${compact ? 'credit--compact' : ''}`}>
-      <span className="credit-tag">REAL</span> {r.title}. {r.author} ·{' '}
+      <span className="credit-tag">REAL</span> {t(r.title)}. {r.author} ·{' '}
       {r.licenseUrl ? (
         <a href={r.licenseUrl} target="_blank" rel="noreferrer">
           {r.license}
         </a>
       ) : (
-        r.license
+        t(r.license)
       )}{' '}
       ·{' '}
       <a href={r.source} target="_blank" rel="noreferrer">
-        fuente
+        {t('fuente')}
       </a>
     </p>
   );
@@ -45,7 +46,7 @@ export default function RealRadiograph({ ids = [], className = '' }) {
   if (!ids.length) {
     return (
       <div className={`real-view real-view--empty ${className}`}>
-        <p>Este estudio no tiene radiografía real asociada todavía.</p>
+        <p>{t('Este estudio no tiene radiografía real asociada todavía.')}</p>
       </div>
     );
   }
@@ -66,19 +67,19 @@ export default function RealRadiograph({ ids = [], className = '' }) {
         }}
         onPointerUp={() => (drag.current = null)}
       >
-        <img src={radiographUrl(id)} alt={r.title} draggable="false" style={{ transform: `scale(${z.k}) translate(${z.x}px, ${z.y}px)` }} />
-        <span className="hc tl">RADIOGRAFÍA REAL</span>
+        <img src={radiographUrl(id)} alt={t(r.title)} draggable="false" style={{ transform: `scale(${z.k}) translate(${z.x}px, ${z.y}px)` }} />
+        <span className="hc tl">{t('RADIOGRAFÍA REAL')}</span>
         {ids.length > 1 && (
           <div className="real-pager">
             {ids.map((x, k) => (
-              <button key={x} className={k === i ? 'on' : ''} onClick={() => setI(k)} aria-label={RADIOGRAPHS[x].title}>
+              <button key={x} className={k === i ? 'on' : ''} onClick={() => setI(k)} aria-label={t(RADIOGRAPHS[x].title)}>
                 {k + 1}
               </button>
             ))}
           </div>
         )}
       </div>
-      <p className="real-note">{r.note}</p>
+      <p className="real-note">{t(r.note)}</p>
       <Credit id={id} />
     </div>
   );

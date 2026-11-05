@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { t } from '../i18n/index.js';
 
 const W = 420;
 const H = 200;
@@ -49,7 +50,7 @@ export default function AnglePlot({ rot, ang, presets = [], target = null, onCha
 
   const xs = [-180, -135, -90, -45, 0, 45, 90, 135, 180];
   const ys = [-45, -30, -15, 0, 15, 30, 45];
-  const xl = { '-180': 'PA', '-90': 'IZQ 90', 0: 'AP', 90: 'DER 90', 180: 'PA' };
+  const xl = { '-180': 'PA', '-90': `${t('IZQ')} 90`, 0: 'AP', 90: `${t('DER')} 90`, 180: 'PA' };
 
   return (
     <svg
@@ -58,8 +59,8 @@ export default function AnglePlot({ rot, ang, presets = [], target = null, onCha
       viewBox={`0 0 ${W} ${H}`}
       role="slider"
       tabIndex={disabled ? -1 : 0}
-      aria-label="Mapa de rotación y angulación del tubo"
-      aria-valuetext={`rotación ${rot} grados, angulación ${ang} grados`}
+      aria-label={t('Mapa de rotación y angulación del tubo')}
+      aria-valuetext={t('rotación {rot} grados, angulación {ang} grados', { rot, ang })}
       onPointerDown={onDown}
       onPointerMove={onMove}
       onKeyDown={onKey}
@@ -84,16 +85,16 @@ export default function AnglePlot({ rot, ang, presets = [], target = null, onCha
         </g>
       ))}
       <text className="ap-label" x={M.l + 4} y={M.t + 10}>
-        CEFÁLICA
+        {t('CEFÁLICA')}
       </text>
       <text className="ap-label" x={M.l + 4} y={H - M.b - 4}>
-        CAUDAL
+        {t('CAUDAL')}
       </text>
       {presets.map((p) => (
         <g key={p.id} className="ap-preset" transform={`translate(${px(p.rot)} ${py(p.ang)})`}>
           <rect x="-4" y="-4" width="8" height="8" transform="rotate(45)" />
           <text x="7" y="-6">
-            {p.short || p.label}
+            {t(p.short || p.label)}
           </text>
         </g>
       ))}

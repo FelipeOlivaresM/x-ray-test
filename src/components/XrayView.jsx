@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { LAYER_DRR, makeAttTarget, makeComposite } from '../lib/shaders.js';
 import { angLabel, carmCamera, rotLabel } from '../lib/carm.js';
+import { t } from '../i18n/index.js';
 
 /**
  * Radiografía reconstruida (DRR) del estudio para un ángulo del arco en C.
@@ -230,7 +231,7 @@ export default function XrayView({
     const rr = project(p.study.iso.clone().add(right));
     const side = rr[0] < c[0] ? 'left' : 'right';
     const mx = side === 'left' ? 22 : w - 40;
-    out += `<g class="lead"><rect x="${mx - 4}" y="${h - 58}" width="26" height="28" rx="3"/><text x="${mx + 9}" y="${h - 37}">D</text></g>`;
+    out += `<g class="lead"><rect x="${mx - 4}" y="${h - 58}" width="26" height="28" rx="3"/><text x="${mx + 9}" y="${h - 37}">${t('D')}</text></g>`;
     if (p.answer) {
       const [x, y] = project(p.answer.pos);
       const r = Math.max(pxRadius(p.answer.pos, p.answer.radius), 10);
@@ -255,7 +256,7 @@ export default function XrayView({
         if (!ok || x < 0 || y < 0 || x > w || y > h) continue;
         const left = x > w * 0.55;
         const tx = left ? x - 16 : x + 16;
-        out += `<g class="lbl"><circle cx="${x}" cy="${y}" r="2.6"/><line x1="${x}" y1="${y}" x2="${tx}" y2="${y - 10}"/><text x="${tx + (left ? -3 : 3)}" y="${y - 13}" text-anchor="${left ? 'end' : 'start'}">${l.name}</text></g>`;
+        out += `<g class="lbl"><circle cx="${x}" cy="${y}" r="2.6"/><line x1="${x}" y1="${y}" x2="${tx}" y2="${y - 10}"/><text x="${tx + (left ? -3 : 3)}" y="${y - 13}" text-anchor="${left ? 'end' : 'start'}">${t(l.name)}</text></g>`;
       }
     }
     svg.innerHTML = out;
@@ -276,24 +277,27 @@ export default function XrayView({
     <div ref={wrapRef} className={`xray-view ${onPick ? 'is-pick' : ''} ${className}`}>
       <canvas ref={canvasRef} />
       <svg ref={svgRef} className="xray-overlay" />
-      {failed && <div className="viewer-fail">Tu navegador no permite WebGL. Prueba con otro navegador o activa la aceleración por hardware.</div>}
-      {!study && !failed && <div className="xray-loading">Cargando modelos óseos…</div>}
+      {failed && <div className="viewer-fail">{t('Tu navegador no permite WebGL. Prueba con otro navegador o activa la aceleración por hardware.')}</div>}
+      {!study && !failed && <div className="xray-loading">{t('Cargando modelos óseos…')}</div>}
       {hud && study && (
         <div className="hud-corners" aria-hidden="true">
           <span className="hc tl">
-            {title || region.title} · {proj ? proj.label : 'Proyección libre'}
+            {title || t(region.title)} · {proj ? t(proj.label) : t('Proyección libre')}
           </span>
           <span className="hc tr">
             {rotLabel(rot)} · {angLabel(ang)}
           </span>
-          <span className="hc bl">SID 100 cm · DRR simulado{study.scale < 1 ? ' · pediátrico' : ''}</span>
+          <span className="hc bl">
+            SID 100 cm · {t('DRR simulado')}
+            {study.scale < 1 ? ` · ${t('pediátrico')}` : ''}
+          </span>
           <span className="hc br">
             {view.zoom > 1.01 ? (
               <button className="hud-btn" onClick={() => st.current.reset()}>
-                ZOOM ×{view.zoom.toFixed(1)} · restablecer
+                ZOOM ×{view.zoom.toFixed(1)} · {t('restablecer')}
               </button>
             ) : (
-              'rueda = zoom'
+              t('rueda = zoom')
             )}
           </span>
         </div>
