@@ -1,0 +1,245 @@
+{
+ "femur": {
+  "title": "File:BodyParts3D Femur.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Femur.stl",
+  "bytes": 311184
+ },
+ "tibia": {
+  "title": "File:BodyParts3D Tibia.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Tibia.stl",
+  "bytes": 168484
+ },
+ "fibula": {
+  "title": "File:BodyParts3D Fibula.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Fibula.stl",
+  "bytes": 114684
+ },
+ "patella": {
+  "title": "File:BodyParts3D Patella.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Patella.stl",
+  "bytes": 30784
+ },
+ "humerus": {
+  "title": "File:BodyParts3D Humerus.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Humerus.stl",
+  "bytes": 372284
+ },
+ "clavicle": {
+  "title": "File:BodyParts3D Clavicle.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Clavicle.stl",
+  "bytes": 115684
+ },
+ "scapula": {
+  "title": "File:BodyParts3D Scapula.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Scapula.stl",
+  "bytes": 2713984
+ },
+ "hip": {
+  "title": "File:BodyParts3D Hip bone.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Hip_bone.stl",
+  "bytes": 235384
+ },
+ "pelvis": {
+  "title": "File:BodyParts3D Pelvis.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Pelvis.stl",
+  "bytes": 727584
+ },
+ "sacrum": {
+  "title": "File:BodyParts3D FJ6484 Sacrum.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_FJ6484_Sacrum.stl",
+  "bytes": 492284
+ },
+ "hand": {
+  "title": "File:BodyParts3D Hand bones.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Hand_bones.stl",
+  "bytes": 765384
+ },
+ "carpal": {
+  "title": "File:BodyParts3D Calpal bones (left hand).stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Calpal_bones_(left_hand).stl",
+  "bytes": 122684
+ },
+ "radius_h": {
+  "title": "File:Human radius.stl",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "Eric Bauer and the donor-based undergraduate human anatomy lab at Elon University.",
+  "credit": "From the gallery of Eric Bauer, released under the Attribution 4.0 International (CC BY 4.0) license, also with written permission.",
+  "source": "https://commons.wikimedia.org/wiki/File:Human_radius.stl",
+  "bytes": 23458684
+ },
+ "ulna_h": {
+  "title": "File:Human ulna.stl",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "Eric Bauer and the donor-based undergraduate human anatomy lab at Elon University.",
+  "credit": "From the gallery of Eric Bauer, released under the Attribution 4.0 International (CC BY 4.0) license, also with written permission.",
+  "source": "https://commons.wikimedia.org/wiki/File:Human_ulna.stl",
+  "bytes": 25086484
+ },
+ "radius_l": {
+  "title": "File:Left Radius.stl",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "UNCG Imaging Lab https://sketchfab.com/uncgimaginglab",
+  "credit": "\"Left Radius\" from Sketchfab https://sketchfab.com/3d-models/left-radius-68c3f1c56b1b400e905072293e0a878a (web archive)",
+  "source": "https://commons.wikimedia.org/wiki/File:Left_Radius.stl",
+  "bytes": 12982684
+ },
+ "ulna_l": {
+  "title": "File:Left Ulna.stl",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "UNCG Imaging Lab https://sketchfab.com/uncgimaginglab",
+  "credit": "\"Left Ulna\" from Sketchfab https://sketchfab.com/3d-models/left-ulna-4b849ef3f5c142099b0a244b00011e47 (web archive)",
+  "source": "https://commons.wikimedia.org/wiki/File:Left_Ulna.stl",
+  "bytes": 4485434
+ },
+ "thoracic": {
+  "title": "File:BodyParts3D Thoracic vertebrae.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Thoracic_vertebrae.stl",
+  "bytes": 1404584
+ },
+ "rib1": {
+  "title": "File:BodyParts3D First rib.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_First_rib.stl",
+  "bytes": 327684
+ },
+ "rib2": {
+  "title": "File:BodyParts3D Second rib.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Second_rib.stl",
+  "bytes": 559484
+ },
+ "rib3": {
+  "title": "File:BodyParts3D Thrid rib.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Thrid_rib.stl",
+  "bytes": 725484
+ },
+ "rib4": {
+  "title": "File:BodyParts3D Fourth rib.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Fourth_rib.stl",
+  "bytes": 884184
+ },
+ "sternum": {
+  "title": "File:BodyParts3D Sternum.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Sternum.stl",
+  "bytes": 402584
+ },
+ "lumbar": {
+  "title": "File:BodyParts3D Lumbar vertebrae.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Lumbar_vertebrae.stl",
+  "bytes": 843184
+ },
+ "ribcage": {
+  "title": "File:BodyParts3D Rib cage.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Rib_cage.stl",
+  "bytes": 11641184
+ },
+ "skull": {
+  "title": "File:BodyParts3D Skull.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Skull.stl",
+  "bytes": 8562484
+ },
+ "cervical": {
+  "title": "File:BodyParts3D Cervical vertebrae.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Cervical_vertebrae.stl",
+  "bytes": 757584
+ },
+ "foot": {
+  "title": "File:BodyParts3D Foot bones.stl",
+  "license": "CC BY-SA 2.1 jp",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/jp/deed.en",
+  "artist": "Database Center for Life Science (DBCLS)[1].",
+  "credit": "BodyParts3D http://lifesciencedb.jp/bp3d/",
+  "source": "https://commons.wikimedia.org/wiki/File:BodyParts3D_Foot_bones.stl",
+  "bytes": 2393884
+ }
+}
